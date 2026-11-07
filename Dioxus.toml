@@ -1,0 +1,11 @@
+[application]
+name = "Oratio"
+android_manifest = "android/AndroidManifest.xml"
+
+[android]
+identifier = "me.yoaxis.rustchat"
+min_sdk = 26
+target_sdk = 34
+
+[bundle]
+icon = ["assets/icon.png"]
