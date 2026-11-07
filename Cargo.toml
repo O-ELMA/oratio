@@ -1,0 +1,39 @@
+[package]
+name = "Oratio"
+version = "0.2.0"
+edition = "2021"
+
+[lib]
+name = "oratio"
+path = "src/lib.rs"
+
+[[bin]]
+name = "oratio"
+path = "src/main.rs"
+
+[dependencies]
+dioxus = { version = "0.7.10", features = ["mobile"] }
+dioxus-free-icons = { version = "0.10", features = ["lucide"] }
+dioxus-charts = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = "0.4"
+rusqlite = { version = "0.32", features = ["bundled"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "stream", "rustls-tls-webpki-roots"] }
+futures-util = "0.3"
+pulldown-cmark = "0.13"
+ammonia = "4"
+ndk-context = "0.1"
+jni = "0.21"
+log = "0.4"
+tokio = { version = "1", features = ["time", "sync"] }
+
+[target.'cfg(target_os = "android")'.dependencies]
+android_logger = "0.15"
+whisper-rs = "0.16"
+ndk = { version = "0.9", features = ["audio"] }
+
+[profile.release]
+opt-level = "s"
+lto = true
+strip = true
